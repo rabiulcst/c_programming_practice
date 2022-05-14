@@ -1,7 +1,7 @@
 #include <stdio.h>
 int main()
 {
-    int n,i,max,min,sao=0,j;
+    int n,i,max,min;
     printf("Enter number of elements : ");
     scanf("%d",&n);
 
@@ -12,24 +12,22 @@ int main()
         printf("Arr[%d] = ",i);
         scanf("%d",&arr[i]);
     }
+
     printf("print elements : \n");
     for(i=0; i<n; i++)
         printf("Arr[%d] = %d\n", i,arr[i]);
-
-    for(i=0; i<n; i++)
+    max = arr[0];
+    for(i=1; i<n; i++)
     {
-        for(j=i+1; j<n; j++)
-        {
-            if(arr[i]<arr[j])
-                sao = 1;
-        }
+        if(max<arr[i])
+            max = arr[i];
+    }
+    min = arr[0];
+    for(i=1; i<n; i++)
+    {
+        if(min>arr[i])
+            min = arr[i];
     }
 
-    if(sao==1)
-        printf("Strictly ascending order");
-    else
-        printf("Not strictly ascending order ");
-
-
-
+    printf("\t<< Max value = %d >>\n\t<< Min value = %d >>",max,min);
 }
